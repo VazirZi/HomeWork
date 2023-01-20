@@ -208,7 +208,7 @@ PrintArray(array);
 int result = SumOfNembersOnOddPositionIndex(array);
 */
 
-//============================== Задача_2 ==============================
+//============================== Задача_3 ==============================
 
 // Задайте массив вещественных чисел. Найдите разницу 
 // между максимальным и минимальным элементами массива.
@@ -283,3 +283,105 @@ int result = (MaxItemOfArray(array) - MinItemOfArray(array));
 
 Console.Write($"\n\nРазница между максимальным и минимальным элементами массива = {result}");
 */
+
+
+
+//============================== 16.01.2023 ==============================
+
+//============================== Задача_1 ==============================
+
+// Пользователь вводит с кламиатуры М чисел. Посчитайте, 
+// сколько чисел больше 0 ввел пользователь.
+
+// Пример: 0, 7, 8, -2, -2 -> 2
+//         1, -7, 567, 89, 223 -> 4
+
+/*
+Console.Clear();
+
+int EnterNumber(string str)
+{
+    Console.Write(str);
+    int number = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    return number;
+}
+
+int[] InitializeArray (int index)
+{
+    int[] array = new int[index];
+    return array;
+}
+
+void EnterNumberInArray (int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = EnterNumber($"Введите {i + 1}-е число: ");
+    }
+}
+
+void PrintArray(int[] array)
+{
+    Console.Write(string.Join(" ", array));
+    Console.WriteLine("\n");
+}
+
+void CountNumberGreaterThenZero (int[] array)
+{
+    int count = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > 0) count++;
+    }
+    Console.WriteLine($"Вы ввели {count} чисел, которые больше нуля...\n");
+}
+
+int M = EnterNumber("Какое количество чисел вы хотите ввести?: ");
+
+int[] array = InitializeArray(M);
+EnterNumberInArray(array);
+PrintArray(array);
+CountNumberGreaterThenZero(array);
+*/
+
+//============================== Задача_2 ==============================
+
+// Напишите программу, которая найдет точку пересечения двух прямых, 
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
+// значения b1, k1, b2 и k2 задаются пользователем.
+
+Console.Clear();
+
+(double, double) EnterNumber(string str)
+{
+    Console.WriteLine(str);
+    (double k, double b) point = (0, 0);
+
+    Console.Write("Введите k: ");
+    point.k = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("Введите b: ");
+    point.b = Convert.ToInt32(Console.ReadLine());
+    
+    return point;
+}
+
+void Result ((double k1, double b1) point1,(double k2, double b2) point2)
+{
+    (double x, double y) resultPoint;
+
+    resultPoint.x = (point1.b1 - point2.b2)/(Math.Abs(point1.k1 - point2.k2));
+    resultPoint.y = point2.k2 * resultPoint.x + point2.b2;
+
+    Console.WriteLine($"\nТочка пересечения двух прямых с заданными координатами ({resultPoint.x}, {resultPoint.y})");
+}
+
+(double k1, double b1) point1 = EnterNumber("\nВведите точку для первого уравнения:\n");
+(double k2, double b2) point2 = EnterNumber("\nВведите точку для второго уравнения:\n");
+
+Console.WriteLine($"\nКоординаты первой точки ({point1.k1}, {point1.b1})");
+Console.WriteLine($"Координаты второй точки ({point2.k2}, {point2.b2})");
+
+Result(point1, point2);
