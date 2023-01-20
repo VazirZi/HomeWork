@@ -286,7 +286,7 @@ Console.Write($"\n\nРазница между максимальным и мин
 
 
 
-//============================== 16.01.2023 ==============================
+//============================== 19.01.2023 ==============================
 
 //============================== Задача_1 ==============================
 
@@ -352,6 +352,7 @@ CountNumberGreaterThenZero(array);
 // заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
 // значения b1, k1, b2 и k2 задаются пользователем.
 
+/*
 Console.Clear();
 
 (double, double) EnterNumber(string str)
@@ -364,7 +365,7 @@ Console.Clear();
 
     Console.Write("Введите b: ");
     point.b = Convert.ToInt32(Console.ReadLine());
-    
+
     return point;
 }
 
@@ -385,3 +386,4 @@ Console.WriteLine($"\nКоординаты первой точки ({point1.k1},
 Console.WriteLine($"Координаты второй точки ({point2.k2}, {point2.b2})");
 
 Result(point1, point2);
+*/
